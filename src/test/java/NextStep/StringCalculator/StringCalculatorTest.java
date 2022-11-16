@@ -14,4 +14,13 @@ public class StringCalculatorTest {
 
         Assertions.assertThat(number).isEqualTo(6);
     }
+
+    @Test
+    @DisplayName("\"1,2,3,4,5,6\"을 전달하는 경우, 21을 출력")
+    void getNumbers2() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.calculate("1,2,3,4,5,6");
+
+        Assertions.assertThat(result).isEqualTo(21);
+    }
 }
