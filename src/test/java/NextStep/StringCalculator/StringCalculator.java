@@ -5,9 +5,16 @@ import java.util.stream.Stream;
 public class StringCalculator {
 
     public int calculate(String input) {
+        Stream<String> stream;
         if (input.contains(";")) {
-            return 6;
+            stream = getSplit(input, ";");
+        } else {
+            stream = getSplit(input, ",");
         }
-        return Stream.of(input.split(",")).mapToInt(Integer::parseInt).sum();
+        return stream.mapToInt(Integer::parseInt).sum();
+    }
+
+    private Stream<String> getSplit(String input, String regex) {
+        return Stream.of(input.split(regex));
     }
 }
