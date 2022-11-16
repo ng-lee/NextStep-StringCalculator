@@ -59,4 +59,10 @@ public class StringCalculatorTest {
     void containsLetter() {
         Assertions.assertThrows(NumberFormatException.class, () -> calculator.calculate("1,2,a"));
     }
+
+    @Test
+    @DisplayName("1,2,-3 을 전달하는 경우, 에러 발생")
+    void containsNegetiveNumber() {
+        Assertions.assertThrows(RuntimeException.class, () -> calculator.calculate("1,2,-3"));
+    }
 }
