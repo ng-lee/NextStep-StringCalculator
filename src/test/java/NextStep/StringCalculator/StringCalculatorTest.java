@@ -10,8 +10,8 @@ public class StringCalculatorTest {
     @DisplayName("\"1,2,3\"을 전달하는 경우, \"1 2 3\"을 출력")
     void getNumbers() {
         StringCalculator calculator = new StringCalculator();
-        int[] numbers = calculator.insert("1,2,3");
+        int number = calculator.calcalate("1,2,3");
 
-        Assertions.assertThat(numbers).isEqualTo(new int[]{1, 2, 3});
+        Assertions.assertThat(number).isEqualTo(6);
     }
 }
