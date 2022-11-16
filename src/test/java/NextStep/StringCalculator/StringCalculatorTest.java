@@ -30,4 +30,12 @@ public class StringCalculatorTest {
 
         assertThat(result).isEqualTo(21);
     }
+
+    @Test
+    @DisplayName("\"1;2;3\"을 전달하는 경우, 6을 출력")
+    void getNumbers3() {
+        int result = calculator.calculate("1;2;3");
+
+        assertThat(result).isEqualTo(6);
+    }
 }
