@@ -38,4 +38,12 @@ public class StringCalculatorTest {
 
         assertThat(result).isEqualTo(6);
     }
+
+    @Test
+    @DisplayName("1;2;3;4;5;6 을 전달하는 경우, 21을 출력")
+    void getNumbers4() {
+        int result = calculator.calculate("1;2;3;4;5;6");
+
+        assertThat(result).isEqualTo(21);
+    }
 }
