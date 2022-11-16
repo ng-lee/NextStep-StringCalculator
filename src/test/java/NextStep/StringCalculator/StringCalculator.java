@@ -1,6 +1,5 @@
 package NextStep.StringCalculator;
 
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class StringCalculator {
@@ -12,15 +11,11 @@ public class StringCalculator {
         } else {
             stream = getSplit(input, ",");
         }
-        IntStream intStream = getIntStream(stream);
-        intStream.forEach(n -> {
-            if (n < 0) throw new RuntimeException();
-        });
-        return intStream.sum();
-    }
-
-    private IntStream getIntStream(Stream<String> stream) {
-        return stream.mapToInt(Integer::parseInt);
+        int total = stream.mapToInt(Integer::parseInt).reduce((t, i) -> {
+            if (i < 0) throw new RuntimeException();
+            else return t + i;
+        }).getAsInt();
+        return total;
     }
 
     private Stream<String> getSplit(String input, String regex) {

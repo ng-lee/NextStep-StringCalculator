@@ -1,11 +1,11 @@
 package NextStep.StringCalculator;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StringCalculatorTest {
 
@@ -17,7 +17,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    @DisplayName("\"1,2,3\"을 전달하는 경우, \"1 2 3\"을 출력")
+    @DisplayName("1,2,3 을 전달하는 경우, 6을 출력")
     void getNumbers() {
         int number = calculator.calculate("1,2,3");
 
@@ -51,18 +51,18 @@ public class StringCalculatorTest {
     @Test
     @DisplayName("1,2;3 을 전달하는 경우, 에러 발생")
     void containsMultipleSeparator() {
-        Assertions.assertThrows(NumberFormatException.class, () -> calculator.calculate("1,2;3"));
+        assertThrows(NumberFormatException.class, () -> calculator.calculate("1,2;3"));
     }
 
     @Test
     @DisplayName("1,2,a 을 전달하는 경우, 에러 발생")
     void containsLetter() {
-        Assertions.assertThrows(NumberFormatException.class, () -> calculator.calculate("1,2,a"));
+        assertThrows(NumberFormatException.class, () -> calculator.calculate("1,2,a"));
     }
 
     @Test
     @DisplayName("1,2,-3 을 전달하는 경우, 에러 발생")
     void containsNegetiveNumber() {
-        Assertions.assertThrows(RuntimeException.class, () -> calculator.calculate("1,2,-3"));
+        assertThrows(RuntimeException.class, () -> calculator.calculate("1,2,-3"));
     }
 }
