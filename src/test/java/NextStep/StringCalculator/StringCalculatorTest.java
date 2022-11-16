@@ -53,4 +53,10 @@ public class StringCalculatorTest {
     void containsMultipleSeparator() {
         Assertions.assertThrows(NumberFormatException.class, () -> calculator.calculate("1,2;3"));
     }
+
+    @Test
+    @DisplayName("1,2,a 을 전달하는 경우, 에러 발생")
+    void containsLetter() {
+        Assertions.assertThrows(NumberFormatException.class, () -> calculator.calculate("1,2,a"));
+    }
 }
